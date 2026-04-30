@@ -1,0 +1,57 @@
+{
+  "$schema": "Generated from COBOL Copybook REG-CLIENTE",
+  "_cobolSource": "01 REG-CLIENTE — Mainframe Client Record",
+  "_generatedAt": "2026-04-29",
+  "_recordSizeEstimate": "~280 bytes (EBCDIC)",
+
+  "cliDadosBasicos": {
+    "_cobol": "05 CLI-DADOS-BASICOS",
+    "cliId": 123456789,
+    "cliNome": "MARIA FERNANDA OLIVEIRA SANTOS",
+    "cliTipoPessoa": "F",
+    "_cliTipoPessoa_enum": ["F = Pessoa Física", "J = Pessoa Jurídica"],
+    "cliDataNasc": 19850315
+  },
+
+  "cliSaldoConta": 1500042.75,
+  "_cliSaldoConta_cobol": "PIC S9(13)V99 COMP-3 → signed decimal, 2 implicit places",
+
+  "cliEndereco": {
+    "_cobol": "05 CLI-ENDERECO",
+    "cliLogradouro": "RUA DAS PALMEIRAS, 1200",
+    "cliCidade": "SAO PAULO",
+    "cliUf": "SP"
+  },
+
+  "cliContatos": [
+    {
+      "_cobol": "OCCURS 3 TIMES — Entry 1",
+      "cliTipoContato": 1,
+      "_cliTipoContato_enum": ["1 = Tel. Fixo", "2 = Tel. Celular", "3 = E-mail"],
+      "cliDescricao": "(11) 3456-7890"
+    },
+    {
+      "_cobol": "OCCURS 3 TIMES — Entry 2",
+      "cliTipoContato": 2,
+      "cliDescricao": "(11) 99876-5432"
+    },
+    {
+      "_cobol": "OCCURS 3 TIMES — Entry 3",
+      "cliTipoContato": 3,
+      "cliDescricao": "maria.santos@empresa.com.br"
+    }
+  ],
+
+  "_redefines_documentation": {
+    "description": "CLI-RESERVA and CLI-RESERVA-REDEF share the same 20-byte area.",
+    "interpretation_A": "Raw string: PIC X(20) — reserved/filler field",
+    "interpretation_B": "Structured: CLI-COD-PROMO PIC 9(05) + CLI-STATUS-INTERNO PIC X(15)"
+  },
+
+  "cliReserva_asRawString": "12345ATIVO          ",
+
+  "cliReserva_asRedefines": {
+    "cliCodPromo": 12345,
+    "cliStatusInterno": "ATIVO"
+  }
+}

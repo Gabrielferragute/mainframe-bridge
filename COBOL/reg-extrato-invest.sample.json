@@ -1,0 +1,123 @@
+{
+  "$schema": "Generated from COBOL Copybook REG-EXTRATO-INVEST",
+  "_cobolSource": "01 REG-EXTRATO-INVEST — High-Performance Investment Statement",
+  "_generatedAt": "2026-04-29",
+  "_bidimensionalTable": "EXT-CARTEIRA(5) × EXT-MOVIMENTACOES(10) = 50 cells",
+  "_recordSizeEstimate": "~2,200 bytes (EBCDIC)",
+
+  "extCabecalho": {
+    "_cobol": "05 EXT-CABECALHO",
+    "extContaOrigem": 1234567890,
+    "extNomeTitular": "CARLOS EDUARDO MACHADO FERREIRA",
+    "extDataGeracao": 20260429
+  },
+
+  "extResumoTotal": {
+    "_cobol": "05 EXT-RESUMO-TOTAL",
+    "extTotalAplicado": 2580000.00,
+    "_extTotalAplicado_cobol": "PIC S9(13)V99 COMP-3 → packed decimal, signed, 2 decimals",
+    "extTotalRendimento": 145320.87,
+    "_extTotalRendimento_cobol": "PIC S9(11)V99 COMP-3 → packed decimal, signed, 2 decimals",
+    "extTotalEditado": "  2.725.320,87",
+    "_extTotalEditado_cobol": "PIC Z.ZZZ.ZZ9,99 → EDITED display field (string, 14 bytes). Z = zero-suppressed, dots = thousand sep, comma = decimal sep"
+  },
+
+  "extCarteira": [
+    {
+      "_cobol": "05 EXT-CARTEIRA — OCCURS entry 1 of 5",
+      "extTipoInvest": 1,
+      "_extTipoInvest_enum": ["01 = Renda Fixa", "02 = Ações", "03 = FII"],
+      "extNomeProduto": "CDB BANCO BRASIL",
+      "extValorAtual": 1200000.00,
+      "_extValorAtual_cobol": "PIC S9(11)V99 COMP-3",
+      "extMovimentacoes": [
+        {
+          "_cobol": "OCCURS entry 1 of 10 — INNER dimension",
+          "extDataMov": 20260115,
+          "extTipoMov": "A",
+          "_extTipoMov_enum": ["A = Aplicação", "R = Resgate"],
+          "extValorMov": 500000.00,
+          "_extValorMov_cobol": "PIC S9(09)V99 COMP (binary, NOT packed decimal)"
+        },
+        {
+          "_cobol": "OCCURS entry 2 of 10",
+          "extDataMov": 20260215,
+          "extTipoMov": "A",
+          "extValorMov": 700000.00
+        },
+        {
+          "_cobol": "OCCURS entry 3 of 10",
+          "extDataMov": 20260320,
+          "extTipoMov": "R",
+          "extValorMov": -50000.00
+        },
+        {
+          "_cobol": "OCCURS entries 4–10 (unused slots, zeroed)",
+          "extDataMov": 0,
+          "extTipoMov": "A",
+          "extValorMov": 0.00
+        }
+      ]
+    },
+    {
+      "_cobol": "05 EXT-CARTEIRA — OCCURS entry 2 of 5",
+      "extTipoInvest": 2,
+      "extNomeProduto": "PETR4 PETROBRAS",
+      "extValorAtual": 850000.50,
+      "extMovimentacoes": [
+        {
+          "extDataMov": 20260110,
+          "extTipoMov": "A",
+          "extValorMov": 300000.00
+        },
+        {
+          "extDataMov": 20260305,
+          "extTipoMov": "A",
+          "extValorMov": 550000.50
+        },
+        {
+          "_cobol": "OCCURS entries 3–10 (unused slots)",
+          "extDataMov": 0,
+          "extTipoMov": "A",
+          "extValorMov": 0.00
+        }
+      ]
+    },
+    {
+      "_cobol": "05 EXT-CARTEIRA — OCCURS entry 3 of 5",
+      "extTipoInvest": 3,
+      "extNomeProduto": "HGLG11 CSHG LOG",
+      "extValorAtual": 530000.00,
+      "extMovimentacoes": [
+        {
+          "extDataMov": 20260201,
+          "extTipoMov": "A",
+          "extValorMov": 530000.00
+        },
+        {
+          "_cobol": "OCCURS entries 2–10 (unused slots)",
+          "extDataMov": 0,
+          "extTipoMov": "A",
+          "extValorMov": 0.00
+        }
+      ]
+    },
+    {
+      "_cobol": "05 EXT-CARTEIRA — OCCURS entry 4 of 5 (empty slot)",
+      "extTipoInvest": 0,
+      "extNomeProduto": "",
+      "extValorAtual": 0.00,
+      "extMovimentacoes": []
+    },
+    {
+      "_cobol": "05 EXT-CARTEIRA — OCCURS entry 5 of 5 (empty slot)",
+      "extTipoInvest": 0,
+      "extNomeProduto": "",
+      "extValorAtual": 0.00,
+      "extMovimentacoes": []
+    }
+  ],
+
+  "extStatusProcessamento": 0,
+  "_extStatusProcessamento_enum": ["0 = Sucesso", "1 = Erro de Saldo", "2 = Conta Bloqueada"]
+}
